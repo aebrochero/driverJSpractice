@@ -1,0 +1,6 @@
+{
+  "name": "Vortex Enterprise Platform",
+  "description": "Template frontend empresarial moderno y escalable con arquitectura modular, diseño corporativo y soporte para recorridos interactivos.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
