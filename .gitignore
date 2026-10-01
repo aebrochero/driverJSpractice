@@ -6,3 +6,7 @@ coverage/
 *.log
 .env*
 !.env.example
+
+# Lockfiles — solo pnpm-lock.yaml se rastrea en git
+package-lock.json
+yarn.lock

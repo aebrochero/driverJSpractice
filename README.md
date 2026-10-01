@@ -4,6 +4,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Vite](https://img.shields.io/badge/Vite-8.0-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
 [![Tailwind CSS v4](https://img.shields.io/badge/Tailwind_CSS-v4.0-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![pnpm](https://img.shields.io/badge/pnpm-11.16.0-F69220?style=for-the-badge&logo=pnpm&logoColor=white)](https://pnpm.io/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
 
 **Vortex Enterprise Platform** es una plantilla frontend empresarial moderna, limpia y escalable basada en **React 19**, **TypeScript** y **Vite**. Diseñada con arquitectura modular, interfaz corporativa de alto rendimiento, sistema de notificaciones en tiempo real, gestión de perfiles y soporte nativo para **recorridos interactivos guíados** (*Onboarding Tours*).
@@ -94,30 +95,39 @@ driverJSpractice/
 
 Asegúrate de contar con las siguientes herramientas instaladas en tu sistema:
 - **Node.js**: `v18.0.0` o superior
-- **npm**: `v9.0.0` o superior (o `yarn` / `pnpm`)
+- **pnpm**: `v9.0.0` o superior — [Instrucciones de instalación](https://pnpm.io/installation)
+
+> **¿Por qué pnpm?** A diferencia de npm, pnpm usa un almacén de paquetes compartido con enlaces simbólicos (hardlinks), lo que elimina dependencias fantasma, reduce el tamaño de `node_modules` y aplica políticas de seguridad de suministro más estrictas. El campo `"packageManager": "pnpm@11.16.0"` en `package.json` previene el uso accidental de npm o yarn.
 
 ### Pasos de Instalación
 
-1. **Clonar el repositorio:**
+1. **Instalar pnpm** (si aún no lo tienes):
+   ```bash
+   npm install -g pnpm
+   # o usando corepack (recomendado)
+   corepack enable pnpm
+   ```
+
+2. **Clonar el repositorio:**
    ```bash
    git clone https://github.com/tu-usuario/driverJSpractice.git
    cd driverJSpractice
    ```
 
-2. **Instalar dependencias:**
+3. **Instalar dependencias:**
    ```bash
-   npm install
+   pnpm install
    ```
 
-3. **Configurar variables de entorno:**
+4. **Configurar variables de entorno:**
    Copia el archivo de ejemplo `.env.example` para crear tu `.env`:
    ```bash
    cp .env.example .env
    ```
 
-4. **Iniciar el servidor de desarrollo:**
+5. **Iniciar el servidor de desarrollo:**
    ```bash
-   npm run dev
+   pnpm dev
    ```
    Abre tu navegador en [http://localhost:3000](http://localhost:3000).
 
@@ -144,7 +154,7 @@ El proyecto incluye anclas con el atributo `data-tour="..."` en los elementos cl
 Para activar un recorrido guíado, puedes instalar `driver.js` e inicializarlo fácilmente:
 
 ```bash
-npm install driver.js
+pnpm add driver.js
 ```
 
 ```typescript
@@ -203,11 +213,14 @@ El directorio `src/components/ui/` ofrece un conjunto de componentes reutilizabl
 
 En el archivo `package.json` se definen los siguientes comandos:
 
-- **`npm run dev`**: Inicia el servidor de desarrollo local en el puerto `3000`.
-- **`npm run build`**: Compila y optimiza el proyecto para producción en la carpeta `dist/`.
-- **`npm run preview`**: Sirve localmente los archivos compilados de producción para verificación.
-- **`npm run lint`**: Realiza la verificación de tipos de TypeScript sin emitir archivos (`tsc --noEmit`).
-- **`npm run clean`**: Elimina la carpeta de compilación `dist/` y temporales.
+| Comando | Descripción |
+| :--- | :--- |
+| `pnpm dev` | Inicia el servidor de desarrollo local en el puerto `3000` |
+| `pnpm build` | Compila y optimiza el proyecto para producción en la carpeta `dist/` |
+| `pnpm preview` | Sirve localmente los archivos compilados de producción para verificación |
+| `pnpm lint` | Verificación de tipos TypeScript sin emitir archivos (`tsc --noEmit`) |
+| `pnpm clean` | Elimina la carpeta de compilación `dist/` y temporales |
+| `pnpm approve-builds` | Gestión de permisos de scripts post-instalación (supply-chain security) |
 
 ---
 
